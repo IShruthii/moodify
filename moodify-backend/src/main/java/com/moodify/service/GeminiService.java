@@ -23,6 +23,10 @@ public class GeminiService {
      * Returns null if the call fails so the caller can fall back.
      */
     public String ask(String userName, String userMessage, String mood, List<String> recentHistory) {
+        // Skip if API key not configured
+        if (apiKey == null || apiKey.isBlank()) {
+            return null;
+        }
         try {
             String systemPrompt = buildSystemPrompt(userName, mood);
             String fullPrompt = buildFullPrompt(systemPrompt, recentHistory, userMessage);
