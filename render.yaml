@@ -42,7 +42,7 @@ services:
     name: moodify-frontend
     runtime: static
     rootDir: moodify-frontend
-    buildCommand: npm install && npm run build
+    buildCommand: echo "Using pre-built dist"
     staticPublishPath: dist
     envVars:
       - key: VITE_API_URL

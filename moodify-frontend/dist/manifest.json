@@ -1,0 +1,17 @@
+{
+  "name": "Moodify",
+  "short_name": "Moodify",
+  "description": "Your intelligent mood-driven life enhancer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0a1e",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
