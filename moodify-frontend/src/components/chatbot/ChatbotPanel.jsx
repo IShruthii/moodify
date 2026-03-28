@@ -93,13 +93,12 @@ export default function ChatbotPanel({ isOpen, onClose, onMessageSent }) {
         time: new Date(),
       }])
     } catch {
-      // Smart contextual fallback — never shows "trouble connecting"
+      // Meaningful fallback for when the API actually times out or fails
       const fallbacks = [
-        "I hear you. Tell me more — I'm listening. 💙",
-        "I'm here with you. What's on your mind? 🌿",
-        "Go on, I've got time for you. What's happening? 😊",
-        "I'm right here. What would feel most helpful right now? 💜",
-        "You're not alone in this. What's going on? 🌸",
+        "I'm having a little trouble connecting right now, but I'm still here for you. Could you try asking me again in a moment? 💙",
+        "My connection seems to be sleepy right now. 🌿 If you wait a tiny bit and try again, I'll be right back with you!",
+        "Hmm, my thoughts are loading a bit slowly right now. Feel free to use one of the quick actions below, or pause a second and try again. 😊",
+        "I'm right here. It looks like my connection is slow at the moment, but take a deep breath and try sending that again. 💜",
       ]
       setMessages(prev => [...prev, {
         sender: 'BOT',

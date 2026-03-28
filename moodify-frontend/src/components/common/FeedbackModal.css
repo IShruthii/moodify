@@ -117,3 +117,59 @@
   .fb-star { font-size: 36px; }
   .fb-title { font-size: 19px; }
 }
+
+/* Emoji rating row */
+.fb-emoji-wrap {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+
+.fb-emoji-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.04);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex: 1;
+}
+
+.fb-emoji-btn:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.fb-emoji-btn.selected {
+  border-color: var(--accent-purple);
+  background: rgba(124, 58, 237, 0.15);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.fb-emoji {
+  font-size: 28px;
+  line-height: 1;
+  display: block;
+}
+
+.fb-emoji-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.fb-emoji-btn.selected .fb-emoji-label {
+  color: var(--accent-purple-light);
+}
+
+@media (max-width: 380px) {
+  .fb-emoji { font-size: 22px; }
+  .fb-emoji-label { display: none; }
+}

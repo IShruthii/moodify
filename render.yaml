@@ -34,7 +34,7 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: GEMINI_API_KEY
-        value: AIzaSyAFcfkuun-qYGRBv2M9TnmwuZ5Rx5TQHQk
+        sync: false
       - key: FRONTEND_URL
         value: https://moodify-frontend.onrender.com
 
@@ -47,10 +47,6 @@ services:
     envVars:
       - key: VITE_API_URL
         value: https://moodify-backend.onrender.com
-    headers:
-      - path: /*
-        name: Cache-Control
-        value: no-cache
     routes:
       - type: rewrite
         source: /*

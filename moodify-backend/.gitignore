@@ -8,3 +8,5 @@ target/
 .DS_Store
 .idea/
 *.iml
+run-local.ps1
+build_errors.txt

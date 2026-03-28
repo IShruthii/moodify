@@ -17,7 +17,9 @@ export default function ThemeSelector({ selected, onSelect }) {
           <div
             className="theme-preview"
             style={{ background: theme.gradient }}
-          />
+          >
+            {theme.emoji && <span className="theme-emoji">{theme.emoji}</span>}
+          </div>
           <span className="theme-name">{theme.name}</span>
           {selected === key && <span className="theme-check">✓</span>}
         </button>

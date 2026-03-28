@@ -65,7 +65,7 @@ export default function CalendarPage() {
 
         <div className="calendar-layout">
           <div className="calendar-main">
-            <CalendarWidget calendarData={analytics?.calendarData || {}} feedbackData={feedbackData} />
+            <CalendarWidget calendarData={analytics?.calendarData || {}} feedbackData={feedbackData} moodHistory={history} />
           </div>
 
           <div className="calendar-sidebar">

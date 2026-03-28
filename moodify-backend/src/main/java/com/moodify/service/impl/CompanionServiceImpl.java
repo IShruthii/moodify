@@ -7,7 +7,7 @@ import com.moodify.entity.User;
 import com.moodify.repository.ChatMessageRepository;
 import com.moodify.repository.UserRepository;
 import com.moodify.service.CompanionService;
-import com.moodify.service.GeminiService;
+import com.moodify.service.OpenAiService;
 import com.moodify.util.MoodData;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,17 +21,17 @@ public class CompanionServiceImpl implements CompanionService {
 
     private final ChatMessageRepository chatMessageRepository;
     private final UserRepository userRepository;
-    private final GeminiService geminiService;
+    private final OpenAiService openAiService;
 
     private final Map<String, String> lastBotResponse = new ConcurrentHashMap<>();
     private final Map<String, Integer> sessionTurnCount = new ConcurrentHashMap<>();
 
     public CompanionServiceImpl(ChatMessageRepository chatMessageRepository,
                                 UserRepository userRepository,
-                                GeminiService geminiService) {
+                                OpenAiService openAiService) {
         this.chatMessageRepository = chatMessageRepository;
         this.userRepository = userRepository;
-        this.geminiService = geminiService;
+        this.openAiService = openAiService;
     }
 
     @Override
@@ -93,12 +93,12 @@ public class CompanionServiceImpl implements CompanionService {
             return handleQuickAction(quickAction, userName, turn);
         }
 
-        // Try Gemini first for natural conversation
+        // Try OpenAI first for natural conversation
         if (!userMsg.isBlank()) {
             List<String> history = buildRealHistory(userId, sessionId);
-            String geminiReply = geminiService.ask(userName, raw, mood, history);
-            if (geminiReply != null && !geminiReply.isBlank() && !geminiReply.equals(last)) {
-                return geminiReply;
+            String aiReply = openAiService.ask(userName, raw, mood, history);
+            if (aiReply != null && !aiReply.isBlank() && !aiReply.equals(last)) {
+                return aiReply;
             }
         }
 

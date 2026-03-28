@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import { submitFeedback } from '../../api/feedbackApi'
 import './FeedbackModal.css'
 
+const EMOJI_RATINGS = [
+  { emoji: '😭', label: 'Terrible', value: 1 },
+  { emoji: '😕', label: 'Not great', value: 2 },
+  { emoji: '😐', label: 'Okay', value: 3 },
+  { emoji: '😊', label: 'Good', value: 4 },
+  { emoji: '🤩', label: 'Amazing!', value: 5 },
+]
+
 const PROMPTS = {
   1: "We're sorry it wasn't helpful. What could we do better?",
   2: "Thanks for sharing. What felt off?",
@@ -12,12 +20,9 @@ const PROMPTS = {
 
 export default function FeedbackModal({ moodBefore, moodAfter, sessionType = 'RECOMMENDATION', onDone, onSkip }) {
   const [rating,   setRating]   = useState(0)
-  const [hovered,  setHovered]  = useState(0)
   const [comment,  setComment]  = useState('')
-  const [phase,    setPhase]    = useState('rate')  // rate | thanks
+  const [phase,    setPhase]    = useState('rate')
   const [saving,   setSaving]   = useState(false)
-
-  const activeRating = hovered || rating
 
   const handleSubmit = async () => {
     if (!rating) return
@@ -55,8 +60,8 @@ export default function FeedbackModal({ moodBefore, moodAfter, sessionType = 'RE
 
         <div className="fb-header">
           <span className="fb-header-icon">💬</span>
-          <h2 className="fb-title">How was your experience?</h2>
-          <p className="fb-sub">Your honest feedback makes Moodify better for everyone.</p>
+          <h2 className="fb-title">How was your session?</h2>
+          <p className="fb-sub">Tap an emoji to rate your overall experience.</p>
         </div>
 
         {/* Mood transition if available */}
@@ -68,26 +73,25 @@ export default function FeedbackModal({ moodBefore, moodAfter, sessionType = 'RE
           </div>
         )}
 
-        {/* Star rating */}
-        <div className="fb-stars-wrap">
-          <div className="fb-stars">
-            {[1, 2, 3, 4, 5].map(star => (
-              <button
-                key={star}
-                className={`fb-star ${star <= activeRating ? 'active' : ''}`}
-                onMouseEnter={() => setHovered(star)}
-                onMouseLeave={() => setHovered(0)}
-                onClick={() => setRating(star)}
-                aria-label={`${star} star`}
-              >
-                ★
-              </button>
-            ))}
-          </div>
-          {activeRating > 0 && (
-            <p className="fb-star-prompt animate-fade-in">{PROMPTS[activeRating]}</p>
-          )}
+        {/* Emoji rating */}
+        <div className="fb-emoji-wrap">
+          {EMOJI_RATINGS.map(({ emoji, label, value }) => (
+            <button
+              key={value}
+              className={`fb-emoji-btn ${rating === value ? 'selected' : ''}`}
+              onClick={() => setRating(value)}
+              aria-label={label}
+              title={label}
+            >
+              <span className="fb-emoji">{emoji}</span>
+              <span className="fb-emoji-label">{label}</span>
+            </button>
+          ))}
         </div>
+
+        {rating > 0 && (
+          <p className="fb-star-prompt animate-fade-in">{PROMPTS[rating]}</p>
+        )}
 
         {/* Comment */}
         {rating > 0 && (
@@ -108,7 +112,7 @@ export default function FeedbackModal({ moodBefore, moodAfter, sessionType = 'RE
             onClick={handleSubmit}
             disabled={!rating || saving}
           >
-            {saving ? 'Submitting...' : rating ? 'Submit Feedback' : 'Select a rating first'}
+            {saving ? 'Submitting...' : rating ? 'Submit Feedback' : 'Pick an emoji first'}
           </button>
           <button className="fb-skip" onClick={onSkip}>Skip</button>
         </div>
