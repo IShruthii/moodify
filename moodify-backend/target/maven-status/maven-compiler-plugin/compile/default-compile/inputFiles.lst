@@ -17,6 +17,7 @@ E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\ChatResponse.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\FeedbackRequest.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\FeedbackResponse.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\LoginRequest.java
+E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\MoodFrequency.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\MoodRequest.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\MoodResponse.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\dto\PreferenceRequest.java
@@ -49,7 +50,6 @@ E:\Moodify\moodify-backend\src\main\java\com\moodify\service\AnalyticsService.ja
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\AuthService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\CompanionService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\FeedbackService.java
-E:\Moodify\moodify-backend\src\main\java\com\moodify\service\GeminiService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\impl\AnalyticsServiceImpl.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\impl\AuthServiceImpl.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\impl\CompanionServiceImpl.java
@@ -60,6 +60,7 @@ E:\Moodify\moodify-backend\src\main\java\com\moodify\service\impl\PreferenceServ
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\impl\RecommendationServiceImpl.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\MoodService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\NotificationService.java
+E:\Moodify\moodify-backend\src\main\java\com\moodify\service\OpenAiService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\PreferenceService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\service\RecommendationService.java
 E:\Moodify\moodify-backend\src\main\java\com\moodify\util\MoodData.java

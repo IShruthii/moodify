@@ -6,8 +6,8 @@ com\moodify\dto\RecommendationResponse.class
 com\moodify\security\JwtAuthenticationFilter.class
 com\moodify\dto\RecommendationResponse$ActionLink.class
 com\moodify\service\impl\AnalyticsServiceImpl.class
-com\moodify\dto\AnalyticsResponse$MoodFrequency.class
 com\moodify\service\impl\MoodServiceImpl.class
+com\moodify\service\OpenAiService$1.class
 com\moodify\util\SecurityUtils.class
 com\moodify\dto\FeedbackResponse.class
 com\moodify\entity\ChatMessage.class
@@ -16,6 +16,7 @@ com\moodify\service\impl\PreferenceServiceImpl.class
 com\moodify\MoodifyApplication.class
 com\moodify\util\MoodData.class
 com\moodify\dto\AuthResponse.class
+com\moodify\service\OpenAiService.class
 com\moodify\service\RecommendationService.class
 com\moodify\config\DataInitializer.class
 com\moodify\dto\ApiResponse.class
@@ -62,9 +63,9 @@ com\moodify\service\CompanionService.class
 com\moodify\controller\FeedbackController.class
 com\moodify\entity\RecommendationHistory.class
 com\moodify\controller\UserController.class
+com\moodify\dto\MoodFrequency.class
 com\moodify\repository\MoodEntryRepository.class
 com\moodify\dto\RegisterRequest.class
-com\moodify\service\GeminiService.class
 com\moodify\controller\AuthController.class
 com\moodify\controller\PreferenceController.class
 com\moodify\dto\LoginRequest.class
